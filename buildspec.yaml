@@ -27,7 +27,7 @@ artifacts:
   base-directory: build
   discard-paths: yes
   name: audio-video-calls-data-dev
-  destination: s3://audio-video-calls-data-dev/code_output_demo_app/
+  destination: s3://audio-video-calls-data-dev/code_output_demo_app
 
  # files:
  #    - '**/*'
