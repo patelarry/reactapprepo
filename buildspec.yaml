@@ -4,36 +4,63 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
-   
     commands:
-        # install npm
-        - npm install
+      - echo Installing dependencies...
+      - npm install
        
   build:
     commands:
-        # run build script
-        - npm run build
-     
+      - echo Build started on `date`
+      - npm run build
+      - echo Build completed on `date`
+      - ls -al build  # List the contents of the build directory
+
 artifacts:
-  # include all files required to run the application
   files:
-    - public/**/*
-    - src/**/*
-    - package.json
-    - appspec.yml
-    - scripts/**/*
-    - build/**/*
-
-  base-directory: build
-  discard-paths: yes
+    - '**/*'   # Include all files in the base-directory
+  base-directory: build  # The directory containing the build output
+  discard-paths: yes     # Flatten the directory structure in the S3 bucket
   name: audio-video-calls-data-dev
-  destination: s3://audio-video-calls-data-dev/code_output_demo_app/artifact.zip
 
- # files:
- #    - '**/*'
- #  base-directory: build
- #  discard-paths: yes
- #  name: audio-video-calls-data-dev
- #  destination:  s3://audio-video-calls-data-dev/code_output_demo_app/
+
+
+
+# version: 0.2
+
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 18
+   
+#     commands:
+#         # install npm
+#         - npm install
+       
+#   build:
+#     commands:
+#         # run build script
+#         - npm run build
+     
+# artifacts:
+#   # include all files required to run the application
+#   files:
+#     - public/**/*
+#     - src/**/*
+#     - package.json
+#     - appspec.yml
+#     - scripts/**/*
+#     - build/**/*
+
+#   base-directory: build
+#   discard-paths: yes
+#   name: audio-video-calls-data-dev
+#   destination: s3://audio-video-calls-data-dev/code_output_demo_app/artifact.zip
+
+#  # files:
+#  #    - '**/*'
+#  #  base-directory: build
+#  #  discard-paths: yes
+#  #  name: audio-video-calls-data-dev
+#  #  destination:  s3://audio-video-calls-data-dev/code_output_demo_app/
 
 
