@@ -17,7 +17,13 @@ phases:
 
 artifacts:
   files:
-    - '**/*'   # Include all files in the base-directory
+      - public/**/*
+      - src/**/*
+      - package.json
+      - appspec.yml
+      - scripts/**/*
+
+      - '**/*'   # Include all files in the base-directory
   base-directory: build  # The directory containing the build output
   discard-paths: yes     # Flatten the directory structure in the S3 bucket
   name: audio-video-calls-data-dev
