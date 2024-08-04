@@ -15,15 +15,24 @@ phases:
         - npm run build
      
 artifacts:
-  # include all files required to run the application
-  files:
-    - public/**/*
-    - src/**/*
-    - package.json
-    - appspec.yml
-    - scripts/**/*
+#   # include all files required to run the application
+#   files:
+#     - public/**/*
+#     - src/**/*
+#     - package.json
+#     - appspec.yml
+#     - scripts/**/*
 
-base-directory: build
+# base-directory: build
+#   discard-paths: yes
+#   name: audio-video-calls-data-dev
+#   destination: s3://audio-video-calls-data-dev/code_output_demo_app/
+
+ files:
+    - '**/*'
+  base-directory: build
   discard-paths: yes
   name: audio-video-calls-data-dev
-  destination: s3://audio-video-calls-data-dev/code_output_demo_app/
+  destination:  s3://audio-video-calls-data-dev/code_output_demo_app/
+
+
