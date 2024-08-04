@@ -22,12 +22,12 @@ artifacts:
       - package.json
       - appspec.yml
       - scripts/**/*
-      - build/**/*
-
-      # - '**/*'   # Include all files in the base-directory
+      - '**/*'   # Include all files in the base-directory
+    
   base-directory: build  # The directory containing the build output
   discard-paths: yes     # Flatten the directory structure in the S3 bucket
   name: audio-video-calls-data-dev
+  destination: s3://audio-video-calls-data-dev/code_output_demo_app/
 
 
 
